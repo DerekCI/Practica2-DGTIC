@@ -16,10 +16,14 @@ class MainActivity : AppCompatActivity() {
         val spinner = binding.spinner
         val opciones = resources.getStringArray(R.array.opciones)
 
-        val nombre = binding.etNombre
-        val genero = binding.etGenero
-        val dessarrollador = binding.etDesarrollador
+        val nombre = binding.etNombre.text
+        val genero = binding.etGenero.text
+        val dessarrollador = binding.etDesarrollador.text
         val imagen = binding.imageView
+
+        val boton1 = binding.btnGuardar
+        val boton2 = binding.btnEnviar
+
 
         if (spinner != null) {
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
@@ -47,5 +51,29 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+
+        boton1.setOnClickListener{  view ->
+            validar()
+        }
+    }
+
+    fun validar(): Boolean{
+        var isValid = true
+        with(binding){
+            if(etNombre.text.toString().isBlank()){
+                isValid = false
+                etNombre.error = getString(R.string.errorNombre)
+            }
+            if(etDesarrollador.text.toString().isBlank()){
+                isValid = false
+                etDesarrollador.error = getString(R.string.errorDesarrollador)
+            }
+            if(etGenero.text.toString().isBlank()){
+                isValid = false
+                etGenero.error = getString(R.string.errorGenero)
+            }
+        }
+        return isValid
     }
 }

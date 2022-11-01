@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Practica2</string>
+    <string name="errorNombre">Ingresa un nombre</string>
+    <string name="errorDesarrollador">Ingresa el nombre del desarrollador</string>
+    <string name="errorGenero">Ingresa el genero/generos del juego</string>
     <string-array name="opciones">
         <item>PC</item>
         <item>PlayStation</item>
