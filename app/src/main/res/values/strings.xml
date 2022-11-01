@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Practica2</string>
+    <string-array name="opciones">
+        <item>PC</item>
+        <item>PlayStation</item>
+        <item>Xbox</item>
+        <item>Nintendo Switch</item>
+    </string-array>
 </resources>
