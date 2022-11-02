@@ -5,8 +5,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Videojuego(
-    val nombre: String,
-    val generos: String,
-    val desarrollador: String,
-    val plataforma: String
+    val nombre: String?,
+    val generos: String?,
+    val desarrollador: String?,
+    val plataforma: String?
 ): Parcelable
