@@ -1,10 +1,12 @@
 package com.derekci.practica2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.derekci.practica2.Model.Videojuego
 import com.derekci.practica2.databinding.ActivityMainBinding
 
 lateinit var binding: ActivityMainBinding
@@ -16,9 +18,7 @@ class MainActivity : AppCompatActivity() {
         val spinner = binding.spinner
         val opciones = resources.getStringArray(R.array.opciones)
 
-        val nombre = binding.etNombre.text
-        val genero = binding.etGenero.text
-        val dessarrollador = binding.etDesarrollador.text
+
         val imagen = binding.imageView
 
         val boton1 = binding.btnGuardar
@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
                     view: View, position: Int, id: Long
                 ) {
                     val plataforma = spinner.selectedItem.toString()
+
                     if(spinner.selectedItem == opciones[0]){
                         imagen.setImageResource(R.drawable.steam_logo)
                     }else if(spinner.selectedItem == opciones[1]){
@@ -54,7 +55,26 @@ class MainActivity : AppCompatActivity() {
 
 
         boton1.setOnClickListener{  view ->
+            val videojuego = Videojuego(
+                binding.etNombre.text.toString(),
+                binding.etDesarrollador.text.toString(),
+                binding.etNombre.text.toString(),
+                binding.spinner.toString()
+            )
             validar()
+            val intent = Intent(this@MainActivity, ActivityLista::class.java).apply {
+                putExtra("videojuego", videojuego)
+            }
+        }
+        boton2.setOnClickListener{  view ->
+            val videojuego = Videojuego(
+                binding.etNombre.text.toString(),
+                binding.etDesarrollador.text.toString(),
+                binding.etNombre.text.toString(),
+                binding.spinner.toString()
+            )
+            val intent = Intent(this@MainActivity, ActivityLista::class.java)
+            startActivity(intent)
         }
     }
 
