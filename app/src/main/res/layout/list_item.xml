@@ -14,61 +14,62 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvNombre"
         app:srcCompat="@drawable/ic_launcher_background"/>
+
     <TextView
         android:id="@+id/tvGenero"
-        tools:text="Disparos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:textColor="@color/black"
         android:padding="8dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toEndOf="@id/cover"
+        android:textColor="@color/black"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/cover"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        tools:text="@string/disparos" />
+
     <TextView
         android:id="@+id/tvDesarrollador"
-        tools:text="Epic Games"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:textColor="@color/black"
         android:padding="8dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toEndOf="@id/cover"
+        android:textColor="@color/black"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/cover"
         app:layout_constraintTop_toBottomOf="@id/tvGenero"
-        />
+        tools:text="@string/plataforma" />
+
     <TextView
         android:id="@+id/tvPlataforma"
-        tools:text="PC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="36dp"
         android:padding="8dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toEndOf="@id/cover"
+        android:textColor="@color/black"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDesarrollador"
-        />
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toEndOf="@id/tvDesarrollador"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/pc" />
 
     <TextView
         android:id="@+id/tvNombre"
-        tools:text="Fortnite"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:textColor="@color/black"
-        android:padding="8dp"
+        android:layout_marginTop="8dp"
         android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/cover"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        />
+        app:layout_constraintTop_toBottomOf="@id/cover"
+        app:layout_constraintEnd_toEndOf="@+id/cover"
+        tools:text="@string/fortnite" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

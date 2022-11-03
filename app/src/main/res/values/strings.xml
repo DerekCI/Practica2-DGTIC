@@ -3,6 +3,10 @@
     <string name="errorNombre">Ingresa un nombre</string>
     <string name="errorDesarrollador">Ingresa el nombre del desarrollador</string>
     <string name="errorGenero">Ingresa el genero/generos del juego</string>
+    <string name="fortnite">Fortnite</string>
+    <string name="pc">PC</string>
+    <string name="disparos">Disparos</string>
+    <string name="plataforma">Epic Games</string>
     <string-array name="opciones">
         <item>PC</item>
         <item>PlayStation</item>
