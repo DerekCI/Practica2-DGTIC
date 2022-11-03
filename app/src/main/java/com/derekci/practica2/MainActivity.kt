@@ -3,14 +3,20 @@ package com.derekci.practica2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.derekci.practica2.Model.Videojuego
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.lifecycleScope
+import com.derekci.practica2.database.DatabaseInteractor
+import com.derekci.practica2.model.Videojuego
 import com.derekci.practica2.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
 
 lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
+    private val viewModel: MainViewModel = MainViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -56,23 +62,19 @@ class MainActivity : AppCompatActivity() {
 
         boton1.setOnClickListener{  view ->
             val videojuego = Videojuego(
-                binding.etNombre.text.toString(),
-                binding.etDesarrollador.text.toString(),
-                binding.etNombre.text.toString(),
-                binding.spinner.toString()
+                nombre = binding.etNombre.text.toString(),
+                generos = binding.etGenero.text.toString(),
+                desarrollador = binding.etDesarrollador.text.toString(),
+                plataforma = binding.spinner.selectedItem.toString()
             )
+            //Log.d("test", videojuego.nombre.toString())
             validar()
-            val intent = Intent(this@MainActivity, ActivityLista::class.java).apply {
-                putExtra("videojuego", videojuego)
+            lifecycleScope.launch {
+                viewModel.insert(videojuego, this@MainActivity)
             }
+
         }
         boton2.setOnClickListener{  view ->
-            val videojuego = Videojuego(
-                binding.etNombre.text.toString(),
-                binding.etDesarrollador.text.toString(),
-                binding.etNombre.text.toString(),
-                binding.spinner.toString()
-            )
             val intent = Intent(this@MainActivity, ActivityLista::class.java)
             startActivity(intent)
         }
